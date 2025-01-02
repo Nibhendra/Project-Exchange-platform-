@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProjiEx - Project Exchange Platform</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo-section">
+                    <img src="images/logo.png" alt="ProjiEx Logo" class="logo">
+                </div>
+                <div id="user-status">
+                    <button id="register-btn" class="btn">Register/Login</button>
+                    <span id="welcome-msg" style="display:none">Welcome, <span id="user-name-display"></span>!</span>
+                </div>
+            </div>
+            <div class="header-content">
+                <h1 class="tagline">Exchange Knowledge, Excel Together!</h1>
+                <div class="header-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Active<br>Projects</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">1000+</span>
+                        <span class="stat-label">Students<br>Enrolled</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Partner<br>Universities</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav class="main-nav">
+        <div class="container">
+            <ul class="nav-list">
+                <li><a href="#task-posting" class="nav-link" data-target="task-posting">
+                    <i class="nav-icon">📝</i>
+                    <span>Task Posting</span>
+                </a></li>
+                <li><a href="#task-bidding" class="nav-link" data-target="task-bidding">
+                    <i class="nav-icon">🎯</i>
+                    <span>Task Bidding</span>
+                </a></li>
+                <li><a href="#user-profiles" class="nav-link" data-target="user-profiles">
+                    <i class="nav-icon">👤</i>
+                    <span>User Profiles</span>
+                </a></li>
+                <li><a href="#communication" class="nav-link" data-target="communication">
+                    <i class="nav-icon">💬</i>
+                    <span>Communication</span>
+                </a></li>
+                <li><a href="#ratings-reviews" class="nav-link" data-target="ratings-reviews">
+                    <i class="nav-icon">⭐</i>
+                    <span>Ratings and Reviews</span>
+                </a></li>
+            </ul>
+        </div>
+    </nav>
+    <main class="main-content">
+        <div class="container">
+            <!-- User Registration Modal -->
+            <div id="registration-modal" class="modal">
+                <div class="modal-content">
+                    <h2>User Registration</h2>
+                    <p>Please complete your profile to start using ProjiEx</p>
+                    <form id="registration-form">
+                        <div class="form-group">
+                            <label for="reg-name">Full Name:</label>
+                            <input type="text" id="reg-name" name="reg-name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="reg-email">Email:</label>
+                            <input type="email" id="reg-email" name="reg-email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="reg-institution">Institution:</label>
+                            <input type="text" id="reg-institution" name="reg-institution" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="reg-study-field">Field of Study:</label>
+                            <input type="text" id="reg-study-field" name="reg-study-field" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="reg-academic-year">Academic Year:</label>
+                            <select id="reg-academic-year" name="reg-academic-year" required>
+                                <option value="">Select Year...</option>
+                                <option value="1">1st Year</option>
+                                <option value="2">2nd Year</option>
+                                <option value="3">3rd Year</option>
+                                <option value="4">4th Year</option>
+                                <option value="5">5th Year</option>
+                                <option value="graduate">Graduate</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="btn">Complete Registration</button>
+                    </form>
+                </div>
+            </div>
+            <section id="task-posting" class="card">
+                <h2>Task Posting</h2>
+                <p>Post your assignments and projects here.</p>
+                <form id="task-posting-form">
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject" name="subject" required>
+                    <label for="difficulty">Difficulty Level:</label>
+                    <input type="text" id="difficulty" name="difficulty" required>
+                    <label for="deadline">Deadline:</label>
+                    <input type="date" id="deadline" name="deadline" required>
+                    <label for="budget">Budget:</label>
+                    <input type="number" id="budget" name="budget" required>
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" required></textarea>
+                    <label for="project-files">Upload Project Files:</label>
+                    <input type="file" id="project-files" name="project-files" multiple>
+                    <button type="submit" class="btn">Post Task</button>
+                </form>
+            </section>
+            <section id="task-bidding" class="card" style="display:none;">
+                <h2>Task Bidding</h2>
+                <p>Bid on tasks posted by other students.</p>
+                <div id="task-list">
+                    <!-- Tasks will be appended here -->
+                </div>
+            </section>
+            <section id="user-profiles" class="card" style="display:none;">
+                <h2>User Profiles</h2>
+                <p>Manage your profile, skills, and reviews.</p>
+                <div id="profile-section">
+                    <form id="profile-form">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                        <label for="academic-background">Academic Background:</label>
+                        <input type="text" id="academic-background" name="academic-background" required>
+                        <label for="skills">Skills:</label>
+                        <input type="text" id="skills" name="skills" required>
+                        <button type="submit" class="btn">Save Profile</button>
+                    </form>
+                    <div id="profile-display" style="display:none;">
+                        <h3 id="display-name"></h3>
+                        <p><strong>Academic Background:</strong> <span id="display-academic-background"></span></p>
+                        <p><strong>Skills:</strong> <span id="display-skills"></span></p>
+                        <button id="edit-profile" class="btn">Edit Profile</button>
+                    </div>
+                </div>
+            </section>
+            <section id="communication" class="card" style="display:none;">
+                <h2>Communication</h2>
+                <p>Chat with task posters and solvers.</p>
+                <div id="chat-section">
+                    <div id="chat-box">
+                        <!-- Messages will be appended here -->
+                    </div>
+                    <form id="chat-form">
+                        <input type="text" id="chat-message" name="chat-message" placeholder="Type a message..." required>
+                        <button type="submit" class="btn">Send</button>
+                    </form>
+                </div>
+            </section>
+            <section id="ratings-reviews" class="card" style="display:none;">
+                <h2>Ratings and Reviews</h2>
+                <p>Share your experience and help others make informed decisions.</p>
+                <form id="review-form">
+                    <label for="task">Select Task:</label>
+                    <select id="task" name="task" required>
+                        <option value="">Select a task...</option>
+                    </select>
+                    <label for="rating">Rating:</label>
+                    <select id="rating" name="rating" required>
+                        <option value="5">⭐⭐⭐⭐⭐ (5/5)</option>
+                        <option value="4">⭐⭐⭐⭐ (4/5)</option>
+                        <option value="3">⭐⭐⭐ (3/5)</option>
+                        <option value="2">⭐⭐ (2/5)</option>
+                        <option value="1">⭐ (1/5)</option>
+                    </select>
+                    <label for="review">Review:</label>
+                    <textarea id="review" name="review" required placeholder="Share your experience..."></textarea>
+                    <button type="submit" class="btn">Submit Review</button>
+                </form>
+                <div id="review-list">
+                    <!-- Reviews will be displayed here -->
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src="scripts.js"></script>
+</body>
+</html>
